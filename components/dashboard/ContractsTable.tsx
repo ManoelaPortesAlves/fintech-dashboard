@@ -23,29 +23,77 @@ export function ContractsTable() {
   }
 
   return (
-    <div className="mt-10 bg-slate-800 rounded-xl p-6">
-      <h3 className="text-lg font-semibold mb-4">Contratos</h3>
+    <div
+      className="
+        relative mt-10
+
+        bg-card/70 backdrop-blur-xl
+        text-card-foreground
+
+        border border-border/50
+        rounded-xl p-6
+
+        shadow-lg shadow-black/5
+
+        transition-all duration-300
+
+        hover:shadow-xl hover:shadow-primary/5
+      "
+    >
+      <h3 className="text-lg font-semibold mb-4 tracking-tight">
+        Contratos
+      </h3>
 
       <table className="w-full">
         <thead>
-          <tr className="text-left text-slate-400">
-            <th>Cliente</th>
-            <th>Status</th>
-            <th>Valor</th>
+          <tr className="
+            text-left
+            text-muted-foreground
+            border-b border-border/50
+          ">
+            <th className="pb-3 font-medium">Cliente</th>
+            <th className="pb-3 font-medium">Status</th>
+            <th className="pb-3 font-medium">Valor</th>
           </tr>
         </thead>
+
         <tbody>
           {contracts.map((c) => (
             <tr
               key={c.id}
               onClick={() => setSelected(c)}
-              className="border-t border-slate-700 cursor-pointer hover:bg-slate-700 transition"
+              className="
+                group
+                border-b border-border/30
+                cursor-pointer
+
+                transition-all duration-200 ease-out
+
+                hover:bg-muted/40
+                hover:scale-[1.005]
+              "
             >
-              <td>{c.client}</td>
-              <td className={c.status === "ativo" ? "text-green-400" : "text-red-400"}>
+              <td className="py-4 font-medium">
+                {c.client}
+              </td>
+
+              <td
+                className={`
+                  ${
+                    c.status === "ativo"
+                      ? "text-emerald-500"
+                      : "text-red-500"
+                  }
+
+                  transition-colors
+                `}
+              >
                 {c.status}
               </td>
-              <td>{c.value}</td>
+
+              <td className="font-medium">
+                {c.value}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -53,12 +101,20 @@ export function ContractsTable() {
 
       {selected && (
         <Modal onClose={() => setSelected(null)}>
-          <h3 className="text-lg font-bold mb-4">
+          <h3 className="text-lg font-semibold mb-4">
             Editar contrato
           </h3>
 
           <input
-            className="w-full mb-3 p-2 rounded bg-slate-700"
+            className="
+              w-full mb-3 p-2 rounded-md
+
+              bg-background/80 backdrop-blur
+              border border-border/50
+
+              focus:ring-2 focus:ring-primary/40
+              outline-none
+            "
             value={selected.client}
             onChange={(e) =>
               setSelected({ ...selected, client: e.target.value })
@@ -66,7 +122,15 @@ export function ContractsTable() {
           />
 
           <input
-            className="w-full mb-3 p-2 rounded bg-slate-700"
+            className="
+              w-full mb-3 p-2 rounded-md
+
+              bg-background/80 backdrop-blur
+              border border-border/50
+
+              focus:ring-2 focus:ring-primary/40
+              outline-none
+            "
             value={selected.value}
             onChange={(e) =>
               setSelected({ ...selected, value: e.target.value })
@@ -74,7 +138,15 @@ export function ContractsTable() {
           />
 
           <select
-            className="w-full mb-4 p-2 rounded bg-slate-700"
+            className="
+              w-full mb-4 p-2 rounded-md
+
+              bg-background/80 backdrop-blur
+              border border-border/50
+
+              focus:ring-2 focus:ring-primary/40
+              outline-none
+            "
             value={selected.status}
             onChange={(e) =>
               setSelected({ ...selected, status: e.target.value })
@@ -86,7 +158,21 @@ export function ContractsTable() {
 
           <button
             onClick={handleSave}
-            className="w-full bg-sky-400 text-black py-2 rounded font-semibold"
+            className="
+              w-full
+
+              bg-primary text-primary-foreground
+
+              py-2 rounded-md font-semibold
+
+              transition-all duration-200 ease-out
+
+              hover:brightness-110
+              hover:shadow-lg hover:shadow-primary/20
+              hover:-translate-y-0.5
+
+              active:translate-y-0
+            "
           >
             Salvar alterações
           </button>

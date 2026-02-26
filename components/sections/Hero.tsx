@@ -5,8 +5,15 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="px-16 py-32 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      
+    <section
+      className="
+        px-16 py-32
+        bg-gradient-to-b
+        from-background
+        to-muted
+        text-foreground
+      "
+    >
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -20,7 +27,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="mt-6 text-lg text-slate-300 max-w-xl"
+        className="mt-6 text-lg text-muted-foreground max-w-xl"
       >
         Controle contratos, clientes e indicadores em um único painel moderno,
         rápido e seguro.
@@ -34,7 +41,15 @@ export function Hero() {
       >
         <Link
           href="/dashboard"
-          className="bg-sky-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-sky-300 transition"
+          className="
+            inline-flex items-center
+            bg-primary text-primary-foreground
+            px-6 py-3
+            rounded-lg
+            font-semibold
+            hover:opacity-90
+            transition
+          "
         >
           Começar agora
         </Link>

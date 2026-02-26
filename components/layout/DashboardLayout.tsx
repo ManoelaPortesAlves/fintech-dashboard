@@ -1,14 +1,47 @@
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 
-export function DashboardLayout({ children }: { children: React.ReactNode }) {
+export function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div className="flex min-h-screen relative">
+
       <Sidebar />
-      <div style={{ flex: 1 }}>
+
+      <div className="flex flex-col flex-1">
+
         <Header />
-        <main style={{ padding: 24 }}>{children}</main>
+
+        <main
+          className="
+            flex-1 p-6
+            relative
+            bg-gradient-to-br
+            from-background
+            via-background
+            to-muted/30
+          "
+        >
+          {/* emerald accent */}
+          <div
+            className="
+              absolute inset-x-0 top-0 h-32
+              bg-gradient-to-b from-primary/10 to-transparent
+              pointer-events-none
+            "
+          />
+
+          <div className="relative z-10">
+            {children}
+          </div>
+
+        </main>
+
       </div>
+
     </div>
   );
 }
