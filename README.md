@@ -1,13 +1,25 @@
-## ✨ Dashboard Premium
+# Fintech Pro Dashboard
 
-### O que foi feito
-- Design system com tokens de cor e tipografia
-- Dashboard com visual moderno (glass / dark mode)
-- Persistência de dados via localStorage
-- Modal de edição de contratos
-- Tabela com busca e UX refinada
+Dashboard fintech moderno desenvolvido com Next.js, React, TypeScript e TailwindCSS.
 
-### Stack
-- Next.js (App Router)
-- React 18
-- Tailwind CSS
+## Funcionalidades
+
+- Dashboard com métricas financeiras
+- Gráfico de receita mensal
+- Tabela de contratos com edição
+- Dark mode e light mode
+- Interface moderna com design SaaS
+
+## Tecnologias
+
+- Next.js
+- React
+- TypeScript
+- TailwindCSS
+- Recharts
+
+## Executar o projeto
+
+```bash
+npm install
+npm run dev
